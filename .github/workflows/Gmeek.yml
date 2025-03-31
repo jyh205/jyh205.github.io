@@ -38,10 +38,8 @@ jobs:
           GMEEK_VERSION=$(jq -r ".GMEEK_VERSION" config.json)
           git clone https://github.com/jinyinghua/Gmeek.git /opt/Gmeek;
           cd /opt/Gmeek/
-          lastTag=$(git describe --tags `git rev-list --tags --max-count=1`)
-          if [ -z "$lastTag" ]; then 
           lastTag="main"
-          git checkout "$lastTag"; fi;
+          git checkout "$lastTag"
 
       - name: Install dependencies
         run: |
