@@ -40,12 +40,8 @@ jobs:
           cd /opt/Gmeek/
           lastTag=$(git describe --tags `git rev-list --tags --max-count=1`)
           if [ -z "$lastTag" ]; then 
-          lastTag="main"; fi;
-          if [ "$GMEEK_VERSION" == 'last' ]; then
-            git checkout "$lastTag"
-          else
-            git checkout "$GMEEK_VERSION"
-          fi
+          lastTag="main"
+          git checkout "$lastTag"; fi;
 
       - name: Install dependencies
         run: |
